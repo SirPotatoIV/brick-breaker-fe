@@ -5,8 +5,7 @@ import {
   PRESS_START,
   ADD_SCORE,
   DIE,
-  GAME_OVER,
-  DISPLAY_HIGHSCORES
+  GAME_OVER
 } from "./actions";
 import levelOne from "../levels/one";
 import createState from "./createState";
@@ -52,17 +51,6 @@ export default function reducer(state, action) {
         ...state,
         bricks: newBricks
       };
-    // case DISPLAY_HIGHSCORES:
-    //   async function getHighScores(){ 
-    //     try {
-    //       const res = await Axios.get("http://localhost:5000/api/v1/high-scores")
-    //       console.log(res.data.highScores )
-    //     } catch (error) {
-    //       console.log("error getting highsc ores")
-    //     }
-    //   }
-    //   getHighScores()
-    //   return{...state}
     default:
       throw new Error("UNKOWN ACTION:", action.type);
   }

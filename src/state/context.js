@@ -17,6 +17,7 @@ const initialState = createState(levelOne);
 export default function GameProvider(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [highScores, setHighScores] = useState([]);
+  const [showModal, setShowModal] = useState(false);
 
   useMouse(x => {
     dispatch({
@@ -50,6 +51,6 @@ export default function GameProvider(props) {
 
   useGameLoop(state, dispatch, actions);
 
-  const value = { state, dispatch, actions, highScores, setHighScores };
+  const value = { state, dispatch, actions, highScores, setHighScores, showModal, setShowModal };
   return <GameContext.Provider value={value} {...props} />;
 }

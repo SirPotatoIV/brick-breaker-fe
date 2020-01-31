@@ -1,4 +1,5 @@
 import makeLevel from "../levels/makeLevel";
+import {getHighScores} from "../utils/getHighScores"
 import { DIMENSIONS } from "../utils/constants";
 
 export default function createState(level, overrides) {
@@ -46,7 +47,7 @@ export default function createState(level, overrides) {
         height: 100
       }
     ],
-    highScores: [],
+    highScores: getHighScores(),
     ...overrides
   };
 }

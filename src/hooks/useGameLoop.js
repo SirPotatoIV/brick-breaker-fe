@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import willCollide from "../utils/willCollide";
 import { DIMENSIONS } from "../utils/constants";
-import { DISPLAY_HIGHSCORES } from "../state/actions";
 
 export default function useGameLoop(state, dispatch, actions) {
   useEffect(() => {

@@ -8,15 +8,9 @@ import HighScores from "./components/HighScores";
 
 export default function App() {
 
-  const [showModal, setShowModal] = useState(false);
-
   return (
     <GameProvider>
       <GameContainer />
-      {showModal && <HighScores />}
-      <div className="buttonContainer">
-        <button onClick={()=> {showModal ? setShowModal(false) : setShowModal(true)}}>Show High Scores</button>
-      </div>
     </GameProvider>
   );
 }
