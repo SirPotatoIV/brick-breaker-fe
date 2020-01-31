@@ -51,6 +51,6 @@ export default function GameProvider(props) {
 
   useGameLoop(state, dispatch, actions);
 
-  const value = { state, dispatch, actions, highScores, setHighScores, showModal, setShowModal };
+  const value = { state, dispatch, actions };
   return <GameContext.Provider value={value} {...props} />;
 }

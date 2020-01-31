@@ -47,7 +47,6 @@ export default function createState(level, overrides) {
         height: 100
       }
     ],
-    highScores: getHighScores(),
     ...overrides
   };
 }

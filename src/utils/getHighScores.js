@@ -8,6 +8,6 @@ export async function getHighScores(){
     } catch (error) {
         console.log(error)
     }
-    console.log(highScores)
+
     return highScores;
 }

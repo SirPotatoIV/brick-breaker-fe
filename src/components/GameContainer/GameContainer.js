@@ -11,9 +11,11 @@ import Lives from "../Lives";
 import HighScores from "../HighScores";
 
 export default function GameContainer() {
-  // const [showModal, setShowModal] = useState(false);
-  const { state, showModal, setShowModal } = useContext(GameContext);
-  useEffect(()=> {setShowModal(true)},[state.highScores])
+  const [showModal, setShowModal] = useState(false);
+  const { state } = useContext(GameContext);
+  useEffect(()=> {
+    setShowModal(true)
+  },[])
 
   return (
     <div
@@ -31,7 +33,7 @@ export default function GameContainer() {
       <Ball pos={state.ball} />
       <Score />
       <Lives />
-      {showModal && <HighScores />}
+      {showModal && <HighScores setShowModal = {setShowModal} />}
 
     </div>
   );
