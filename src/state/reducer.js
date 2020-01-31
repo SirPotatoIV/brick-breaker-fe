@@ -5,7 +5,8 @@ import {
   PRESS_START,
   ADD_SCORE,
   DIE,
-  GAME_OVER
+  GAME_OVER,
+  DISPLAY_HIGHSCORES
 } from "./actions";
 import levelOne from "../levels/one";
 import createState from "./createState";
@@ -15,7 +16,6 @@ export default function reducer(state, action) {
   switch (action.type) {
     case GAME_OVER:
       const initials = prompt("YOUR SCORE WAS: "+ state.score+"\nINITALS PLEASE")
-      console.log("INITIALS", initials, "SCORE", state.score)
       Axios.post("http://localhost:5000/api/v1/high-scores", {
         initials: initials,
         score: state.score
@@ -52,6 +52,17 @@ export default function reducer(state, action) {
         ...state,
         bricks: newBricks
       };
+    // case DISPLAY_HIGHSCORES:
+    //   async function getHighScores(){ 
+    //     try {
+    //       const res = await Axios.get("http://localhost:5000/api/v1/high-scores")
+    //       console.log(res.data.highScores )
+    //     } catch (error) {
+    //       console.log("error getting highsc ores")
+    //     }
+    //   }
+    //   getHighScores()
+    //   return{...state}
     default:
       throw new Error("UNKOWN ACTION:", action.type);
   }

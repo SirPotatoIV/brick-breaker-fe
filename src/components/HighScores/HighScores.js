@@ -1,17 +1,22 @@
-import React from "react";
+import React, {useContext, useEffect} from "react";
 import "./HighScores.css"
+import Axios from "axios";
+import {GameContext} from "../../state/context"
 
 export default function GameContainer() {
+  const {highScores, setHighScores} = useContext(GameContext)
+  
+  useEffect(()=> {
+    Axios.get("http://localhost:5000/api/v1/high-scores")
+    .then(function(res){setHighScores(res.data.highScores)})
+  },[])
 
   return (
     <div className="highScores">
       <h1>High Scores</h1>
       <ol>
-          <li>JMO 65</li>
-          <li>JMO 65</li>
-          <li>JMO 65</li>
+        {highScores.map(highscore=><li>{highscore.initials} {highscore.score}</li>)}
       </ol>
-      <button>Start New Game</button>
     </div>
   );
 }

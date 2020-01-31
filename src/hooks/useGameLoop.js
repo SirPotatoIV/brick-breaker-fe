@@ -1,6 +1,7 @@
 import { useEffect } from "react";
 import willCollide from "../utils/willCollide";
 import { DIMENSIONS } from "../utils/constants";
+import { DISPLAY_HIGHSCORES } from "../state/actions";
 
 export default function useGameLoop(state, dispatch, actions) {
   useEffect(() => {
@@ -11,7 +12,7 @@ export default function useGameLoop(state, dispatch, actions) {
       let dy = state.ball.dy;
       let isMoving = state.ball.isMoving;
 
-      let paddleX = state.paddle.x;
+      let paddleX = state.paddle.x; 
 
       if (state.lives < 0) {
         dispatch({ type: actions.GAME_OVER });

@@ -14,7 +14,9 @@ export default function App() {
     <GameProvider>
       <GameContainer />
       {showModal && <HighScores />}
-      <button onClick={()=> {showModal ? setShowModal(false) : setShowModal(true)}}>Show Modal</button>
+      <div className="buttonContainer">
+        <button onClick={()=> {showModal ? setShowModal(false) : setShowModal(true)}}>Show High Scores</button>
+      </div>
     </GameProvider>
   );
 }

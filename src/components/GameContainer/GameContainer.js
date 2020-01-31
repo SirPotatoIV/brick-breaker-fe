@@ -8,7 +8,6 @@ import { GameContext } from "../../state/context";
 import { DIMENSIONS } from "../../utils/constants";
 import Score from "../Score";
 import Lives from "../Lives";
-import HighScores from "../HighScores"
 
 export default function GameContainer() {
   const { state } = useContext(GameContext);

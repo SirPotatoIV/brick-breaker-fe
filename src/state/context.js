@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer, useState } from "react";
 
 import * as actions from "./actions";
 import reducer from "./reducer";
@@ -16,6 +16,7 @@ const initialState = createState(levelOne);
 
 export default function GameProvider(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [highScores, setHighScores] = useState([]);
 
   useMouse(x => {
     dispatch({
@@ -49,6 +50,6 @@ export default function GameProvider(props) {
 
   useGameLoop(state, dispatch, actions);
 
-  const value = { state, dispatch, actions };
+  const value = { state, dispatch, actions, highScores, setHighScores };
   return <GameContext.Provider value={value} {...props} />;
 }
